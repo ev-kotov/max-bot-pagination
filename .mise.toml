@@ -1,0 +1,18 @@
+[tools]
+go = "1.26.3"
+
+[tasks.tidy]
+description = "Обновить зависимости"
+run = "go mod tidy"
+
+[tasks.test]
+description = "Запустить все тесты"
+run = "go test -v ./..."
+
+[tasks.cover]
+description = "Запустить тесты с отчетом о покрытии кода"
+run = "go test -coverprofile=coverage.out ./... && go tool cover -html=coverage.out"
+
+[tasks.lint]
+description = "Проверить код с помощью golangci-lint"
+run = "golangci-lint run"
