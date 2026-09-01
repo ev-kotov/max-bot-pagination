@@ -48,7 +48,8 @@ func (p *Paginator) SendPage(ctx context.Context, chatID int64, userID int64, nu
 	msg := maxbot.NewMessage().
 		SetChat(chatID).
 		SetText(text).
-		SetFormat(maxbotModel.FormatMarkdown)
+		SetFormat(maxbotModel.FormatMarkdown).
+		SetDisableLinkPreview(true)
 
 	if keyboard != nil {
 		msg.AddKeyboard(keyboard)
